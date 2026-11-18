@@ -18,7 +18,7 @@ Chaque ligne couvre les dates inclusives proposées dans la chronologie. La colo
 | Adoption définitive du budget 2026 | 02/02/2026 | 1 / 6 | 16,67 % | 0,05 % |
 | Report de l’objectif de déficit public | 17/09/2026 – 18/09/2026 | 0 / 18 | 0,00 % | 0,00 % |
 | Mobilisation des étudiants et des salariés contre les coupes | 29/09/2026 | 0 / 11 | 0,00 % | 0,00 % |
-| Présentation du budget 2027 par le gouvernement Lecornu | 01/10/2026 | 0 / 10 | 0,00 % | 0,00 % |
+| Dépôt du budget 2027 par le gouvernement Lecornu | 01/10/2026 | 0 / 10 | 0,00 % | 0,00 % |
 | Intensification des manifestations nationales | 17/10/2026 | 0 / 3 | 0,00 % | 0,00 % |
 | Rejet du budget de la Sécurité sociale par les députés | 23/10/2026 | 0 / 3 | 0,00 % | 0,00 % |
 

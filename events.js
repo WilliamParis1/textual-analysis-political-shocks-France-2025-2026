@@ -50,7 +50,7 @@
       all(fiscalTarget,/report|recul|repouss|retard|delay|postpon|defer|misses|manqu|renonc|revis|decal|later|5 %.*2027|5 pour cent.*2027/)],
     ['mobilisation-sept-2026','Mobilisation des étudiants et des salariés contre les coupes','2026-09-29',null,
       all(protest,/etudiant|lycee|lyceen|student|travailleur|salarie|worker|fonctionnaire|public sector/,/coupes|cuts|austerit|economies|lack of funds|moyens insuffisants|spending/)],
-    ['budget-2027','Présentation du budget 2027 par le gouvernement Lecornu','2026-10-01',null,
+    ['budget-2027','Dépôt du budget 2027 par le gouvernement Lecornu','2026-10-01',null,
       all(budget,/2027/,/present|projet|depo|leve le voile|unveil|table[sd]?|introduc|submit|announc/)],
     ['manifestations-17-oct','Intensification des manifestations nationales','2026-10-17',null,
       all(/manifest|mobilis|mobiliz|protest|violenc|emeute|unrest|riot/,/17 octobre|october 17|nationwide|national|france|french|dans (?:tout le|le) pays|vie chere|gilets jaunes/)],
@@ -79,9 +79,9 @@
     ["Le Pen’s appeal reopens her bid", "Marine Le Pen condamnée à 1 an ferme sous bracelet, mais éligible en 2027, elle pourrait être candidate à la présidentielle", "https://www.publicsenat.fr/actualites/politique/marine-le-pen-condamnee-a-1-an-ferme-sous-bracelet-mais-eligible-en-2027-pourrait-etre-candidate-a-la-presidentielle", null],
     ["France postpones its deficit target", "Budget 2027 : qui sera touché par les économies proposées par le gouvernement ?", "https://www.publicsenat.fr/actualites/politique/budget-2027-qui-sera-touche-par-les-economies-proposees-par-le-gouvernement", "Le média décrit le glissement de la cible de déficit de 5 % de 2026 à 2027."],
     ["Students and workers protest cuts", "Blocus des lycées : « Une fois sorti du tube, le dentifrice ne rentre plus »", "https://www.publicsenat.fr/actualites/politique/blocus-des-lycees-une-fois-sorti-du-tube-le-dentifrice-ne-rentre-plus", "Le média documente le blocus lycéen et les manifestations d’agents publics."],
-    ["Lecornu tables the 2027 budget", "Impôts, retraites, mesures d’économies : le gouvernement lève le voile sur le budget 2027", "https://www.publicsenat.fr/actualites/economie/impots-retraites-mesures-deconomies-le-gouvernement-leve-le-voile-sur-le-budget-2027-qui-prevoit-un-effort-de-43-milliards-deuros", "Présentation publique le 1er octobre. La date du dépôt parlementaire demande une vérification distincte."],
+    ["Lecornu tables the 2027 budget", "Assemblée nationale · Projet de loi de finances pour 2027, n° 3210", "https://www.assemblee-nationale.fr/dyn/17/dossiers/PLF_2027", "Le dossier législatif date le dépôt du 1er octobre 2026."],
     ["Nationwide protests escalate", "Violences du 17 octobre : Macron exprime sa « colère » et sa « honte » et promet « toute la transparence »", "https://www.publicsenat.fr/actualites/politique/violences-du-17-octobre-macron-exprime-sa-colere-et-sa-honte-et-promet-toute-la-transparence", "Récit publié le 18 octobre sur les violences du 17."],
-    ["MPs reject the social-security budget", "Budget 2027 : calendrier, 49.3, ordonnances…", "https://www.publicsenat.fr/actualites/politique/budget-2027-calendrier-49-3-ordonnancesquelles-sont-les-echeances-a-venir-et-les-scenarios-possibles", "Le bilan du 3 novembre situe le rejet du PLFSS en première lecture le 23 octobre."],
+    ["MPs reject the social-security budget", "Assemblée nationale · Projet de loi de financement de la Sécurité sociale pour 2027, n° 3211", "https://www.assemblee-nationale.fr/dyn/17/dossiers/PLFSS_2027", "Le dossier législatif date le rejet en première lecture du 23 octobre 2026."],
     ["Protests outlast concessions", "Mobilisation du 31 octobre : à quoi faut-il s’attendre ?", "https://www.publicsenat.fr/actualites/politique/mobilisation-du-31-octobre-a-quoi-faut-il-sattendre", "Le média décrit les mobilisations des 17 et 24 octobre et les appels du 31 malgré les annonces."],
   ];
 

@@ -10,7 +10,7 @@ test('the 21 dated English event labels are recognized by their corresponding ru
     const result = rank([example]).find(row => row.id === event.id);
     assert.equal(result.count, 1, event.labelEn);
     assert.equal(result.frequency, 100);
-    assert.equal(result.sourceUrl.startsWith('https://www.publicsenat.fr/'), true);
+    assert.match(result.sourceUrl, /^https:\/\/www\.(?:publicsenat|assemblee-nationale)\.fr\//);
     assert.equal(result.titles[0], example);
   }
 });
