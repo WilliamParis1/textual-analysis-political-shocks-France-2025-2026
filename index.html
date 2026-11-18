@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#202d3c">
+  <title>Observatoire des chocs politiques · France</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="engine.js"></script>
+  <script defer src="events.js"></script>
+  <script defer src="data/corpus.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="mast">
+    <div class="shell mast-inner">
+      <a class="brand" href="#synthese"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>Observatoire politique</a>
+      <nav aria-label="Navigation principale"><a href="#synthese">Synthèse</a><a href="#registre">Titres</a><a href="#methode">Méthode</a></nav>
+    </div>
+  </header>
+  <main class="shell" id="synthese">
+    <div class="intro">
+      <div>
+        <p class="kicker"><span class="country" aria-hidden="true"></span> France <b>·</b> Sept. 2025 — Oct. 2026</p>
+        <h1>Les chocs politiques<br>à la <em>une.</em></h1>
+        <p>Mesurer la part des titres de presse qui évoquent un choc politique en France.</p>
+      </div>
+      <div class="actions"><label class="primary file-btn">Importer un CSV<input id="file" type="file" accept=".csv,.tsv,text/csv,text/tab-separated-values"></label><button id="reset" hidden>Recharger le corpus fourni</button></div>
+    </div>
+    <div id="feedback" role="status" aria-live="polite"></div>
+    <noscript>Active JavaScript pour lancer l’analyse des titres.</noscript>
+    <div class="filters">
+      <div class="dataset"><span class="dot"></span><strong id="corpus-label">Corpus</strong></div>
+      <fieldset><legend class="sr">Période analysée</legend>
+        <label>Du <input type="date" id="start" min="2024-06-01" max="2026-10-31" value="2025-09-01" required></label>
+        <label>au <input type="date" id="end" min="2024-06-01" max="2026-10-31" value="2026-10-31" required></label>
+        <button id="all-dates" class="text-btn">Période du projet</button>
+        <button id="full-dates" class="text-btn">Chronologie complète</button>
+      </fieldset>
+    </div>
+    <p id="coverage-note" class="coverage-note"></p>
+    <section class="overview" aria-labelledby="metric-heading">
+      <div class="metric-block">
+        <h2 class="eyebrow" id="metric-heading">Titres associés au calendrier</h2>
+        <p class="metric" id="frequency">—</p>
+        <p class="metric-desc" id="ratio"></p>
+      </div>
+      <div class="chart-block">
+        <h2>Fréquence par mois</h2>
+        <div id="months" aria-label="Fréquence mensuelle"></div>
+        <div class="chart-legend"><span><i></i> Titres associés (%)</span><span><i class="missing"></i> Sans données</span></div>
+      </div>
+    </section>
+    <section id="documented" class="event-panel" aria-labelledby="events-title">
+      <div class="section-header"><p class="eyebrow">Calendrier de recherche</p><h2 id="events-title">Quels chocs ressortent dans la presse ?</h2><p>Chaque ligne compte les titres qui évoquent l’événement pendant sa fenêtre de dates. Compare leur part dans la période analysée et dans la fenêtre de l’événement.</p></div>
+      <div id="events"></div>
+    </section>
+    <div class="results">
+      <section class="result-card" aria-labelledby="rank-title">
+        <div class="section-header"><p class="eyebrow">Classement</p><h2 id="rank-title">Familles de chocs</h2><p>Nombre de titres par famille et part de tous les titres analysés.</p></div>
+        <div id="categories"></div>
+      </section>
+      <section class="result-card" aria-labelledby="episode-title">
+        <div class="section-header"><p class="eyebrow">Concentration dans le temps</p><h2 id="episode-title">Épisodes médiatiques</h2><p>Jours consécutifs avec au moins une mention d’une même famille, classés par nombre de titres.</p></div>
+        <div id="episodes"></div><button id="more-episodes" class="text-btn" hidden>Voir tous les épisodes</button>
+      </section>
+    </div>
+    <section id="registre" aria-labelledby="evidence-title">
+      <div class="register-heading"><div><p class="eyebrow">Titres et sources</p><h2 id="evidence-title">Registre des titres</h2></div><div class="exports"><button id="export-daily">Exporter la série quotidienne</button><button id="export-evidence">Exporter les titres affichés</button></div></div>
+      <div class="register-controls"><label class="search-label">Rechercher un titre ou une source<input type="search" id="search" placeholder="Mot, expression, média…"></label>
+      <label>Détection<select id="status"><option value="all">Tous les titres</option><option value="event">Associés au calendrier</option><option value="matched">Avec mention d’une famille</option><option value="prospectif">Mentions prospectives</option><option value="aucun">Sans famille détectée</option></select></label>
+      <label>Famille<select id="family"><option value="">Toutes les familles</option></select></label></div>
+      <div id="scope" hidden><span id="scope-text"></span> <button id="clear-scope" class="text-btn">Retirer le filtre</button></div>
+      <p id="evidence-count" class="count" aria-live="polite"></p>
+      <div class="table-wrap"><table><thead><tr><th>Date</th><th>Titre et source</th><th>Détection</th></tr></thead><tbody id="evidence"></tbody></table></div>
+      <div id="paging" class="paging"><button id="prev">Précédent</button><span id="page"></span><button id="next">Suivant</button></div>
+    </section>
+    <section id="methode" class="method" aria-labelledby="method-heading">
+      <div><p class="eyebrow">Protocole</p><h2 id="method-heading">Lire les résultats</h2></div>
+      <div><h3>Que mesure la fréquence ?</h3><p>Le chiffre en tête de page compte chaque titre associé à au moins un événement du calendrier dans sa fenêtre de dates, une seule fois. Les fenêtres sont celles du calendrier de recherche. Une correspondance repose sur les mots du titre. Le dénominateur inclut tous les titres valides et uniques du corpus dans la période choisie. Les classements par événement et par famille peuvent compter un même titre sur plusieurs lignes. La détection par famille reconnaît aussi des mentions en dehors des fenêtres du calendrier.</p>
+      <p id="coverage"></p><p id="quality"></p>
+      <h3>Comment vérifier un épisode ?</h3><p>Sélectionne une famille ou un épisode pour retrouver les titres et les expressions détectées. Une annonce, une hypothèse et un événement réalisé peuvent tous faire l’objet d’une couverture. Vérifie la chronologie auprès des sources avant de retenir une date de choc.</p>
+      <h3>Comment rapprocher presse et marchés ?</h3><p>L’export quotidien donne le nombre total de titres, le nombre associé au calendrier, sa fréquence et les comptes par événement et par famille. La fréquence est indéfinie pour les jours sans titre. Aligne les dates vérifiées sur les séances de marché pour étudier les variations du rendement de l’OAT et de l’écart OAT–Bund. La fréquence mesure l’attention médiatique. Une analyse distincte est nécessaire pour estimer un effet sur les taux.</p>
+      <h3>Utiliser son propre corpus</h3><p>Importe un CSV UTF-8 avec les colonnes <code>date</code> (AAAA-MM-JJ) et <code>headline</code>. Les colonnes <code>source</code> et <code>url</code> facilitent la vérification. Inclus également les titres sans choc selon la même règle d’échantillonnage. L’import remplace le corpus affiché pour cette session et se traite dans ton navigateur.</p>
+      <h3>Question de recherche</h3><p lang="en" class="question">To what extent did political shocks in France (09/25 to 10/26) influence government bond yields and sovereign risk premiums, and what do these market reactions reveal about the relationship between political instability and fiscal credibility?</p></div>
+    </section>
+  </main>
+</body>
+</html>
